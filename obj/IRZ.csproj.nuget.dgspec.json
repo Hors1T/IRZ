@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "I:\\Learn\\Programming\\IRZ\\IRZ.csproj": {}
+    "I:\\Learn\\Programming\\IRZ\\IRZ\\IRZ.csproj": {}
   },
   "projects": {
-    "I:\\Learn\\Programming\\IRZ\\IRZ.csproj": {
+    "I:\\Learn\\Programming\\IRZ\\IRZ\\IRZ.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\Learn\\Programming\\IRZ\\IRZ.csproj",
+        "projectUniqueName": "I:\\Learn\\Programming\\IRZ\\IRZ\\IRZ.csproj",
         "projectName": "IRZ",
-        "projectPath": "I:\\Learn\\Programming\\IRZ\\IRZ.csproj",
+        "projectPath": "I:\\Learn\\Programming\\IRZ\\IRZ\\IRZ.csproj",
         "packagesPath": "C:\\Users\\gorde\\.nuget\\packages\\",
-        "outputPath": "I:\\Learn\\Programming\\IRZ\\obj\\",
+        "outputPath": "I:\\Learn\\Programming\\IRZ\\IRZ\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -47,6 +47,10 @@
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.4, )"
+            },
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.2.9, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

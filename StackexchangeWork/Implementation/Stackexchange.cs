@@ -11,7 +11,7 @@ namespace IRZ.StackexchangeWork
     public class Stackexchange:IStackexchage
     {
         private IRepository<Owner> Owner { get; set; }
-        public void Work(string fromdate, string todate, string tagged)
+        public void Work(DateTime fromdate, DateTime todate, string tagged)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"https://api.stackexchange.com/2.3/search?fromdate={fromdate}&todate={todate}&order=desc&sort=activity&tagged={tagged}&site=stackoverflow");
             request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");

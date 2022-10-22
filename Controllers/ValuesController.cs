@@ -46,13 +46,12 @@ namespace IRZ.Controllers
         }
 
         // POST api/<ValuesController>
-        [HttpGet,Route("post")]
-        public void Post(/*DateTime fromdate, DateTime todate, string tagged*/ )
+        [HttpPost,Route("post")]
+        public void Post(DateTime fromdate, DateTime todate, string tagged)
         {
-            var fromdate = "2000-10-11";
-            var todate = "2022-10-13";
-            var tagged = "python";
+     
             Stackexchage.Work(fromdate,todate,tagged);
+            
             
         }
         [HttpPost, Route("post1")]
