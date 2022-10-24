@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace IRZ.StackexchangeWork
 {
     public interface IStackexchage
     {
-        public void Work(DateTime fromdate, DateTime todate, string tagged);
+        public Task Work(DateTime fromdate, DateTime todate, string tagged);
     }
 }

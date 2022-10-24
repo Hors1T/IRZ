@@ -34,7 +34,7 @@ namespace IRZ
 
             services.AddControllersWithViews();
             services.AddTransient<IStackexchage, Stackexchange>();
-            services.AddTransient<IRepository<Owner>, Repository<Owner>>();
+            services.AddTransient<IRepository<Info>, Repository<Info>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

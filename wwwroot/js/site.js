@@ -3,23 +3,17 @@
 
 // Write your JavaScript code.
 function Request() {
-    var _data =
-    {
-        'fromdate': $("#fromdate").val(),
-        'todate': $("#todate").val(),
-        'tagged': $("#tagged").val()
-
-    };
     $.ajax({
         url: 'http://localhost:53706/api/values/post',
         method: 'post',
         data: {
-            
-           _data
-
+            fromdate: $("#fromdate").val(),
+            todate: $("#todate").val(),
+            tagged: $("#tagged").val()
         },
+        dataType:'text',
         success: function (data) {
-            alert(data);
+            console.log(data);
         }
     });
 }

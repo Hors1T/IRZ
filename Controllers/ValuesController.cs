@@ -19,12 +19,12 @@ namespace IRZ.Controllers
     public class ValuesController : ControllerBase
     {
         private IStackexchage Stackexchage { get; set; }
-        private IRepository<Owner> Owners { get; set; }
+        private IRepository<Info> Infos { get; set; }
 
-        public ValuesController(IStackexchage stackexchage, IRepository<Owner> owners)
+        public ValuesController(IStackexchage stackexchage, IRepository<Info> infos)
         {
             Stackexchage = stackexchage;
-            Owners = owners;
+            Infos = infos;
         }
         // GET api/<ValuesController>/5
         [HttpGet, Route("get")]
@@ -46,12 +46,11 @@ namespace IRZ.Controllers
         }
 
         // POST api/<ValuesController>
-        [HttpPost,Route("post")]
-        public void Post(DateTime fromdate, DateTime todate, string tagged)
+        [HttpPost, Route("post")]
+        public string Post( [FromForm]Post post)
         {
-     
-            Stackexchage.Work(fromdate,todate,tagged);
-            
+            Stackexchage.Work(post.fromdate,post.todate,post.tagged);
+            return post.tagged.ToString();
             
         }
         [HttpPost, Route("post1")]

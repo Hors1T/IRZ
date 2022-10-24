@@ -5,7 +5,7 @@ namespace IRZ.DataBase
 {
     public class DataContext : DbContext
     {
-        public DbSet<Owner> Cars { get; set; }
+        public DbSet<Info> Infos { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
