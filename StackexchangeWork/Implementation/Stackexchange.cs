@@ -1,15 +1,10 @@
 ﻿using IRZ.Models;
 using IRZ.Repositories;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Net.Http;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace IRZ.StackexchangeWork
@@ -38,7 +33,7 @@ namespace IRZ.StackexchangeWork
             else
                 uri.Append($"page={post.page}&");
             if (post.pagesize == 0)
-                uri.Append("page=&");
+                uri.Append("pagesize=&");
             else
                 uri.Append($"pagesize={post.pagesize}&");
             if (post.fromdate == 0)
@@ -85,7 +80,6 @@ namespace IRZ.StackexchangeWork
         {
 
             HttpWebRequest request1 = (HttpWebRequest)WebRequest.Create(GetUri(post));
-            /*HttpWebRequest request1 = (HttpWebRequest)WebRequest.Create($"https://api.stackexchange.com/2.3/search?fromdate={((DateTimeOffset)fromdate).ToUnixTimeSeconds()}&todate={((DateTimeOffset)todate).ToUnixTimeSeconds()}&order=desc&sort=activity&tagged={tagged}&site=stackoverflow");*/
             request1.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
             request1.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
             var webResponse = request1.GetResponse();

@@ -1,5 +1,4 @@
 ﻿using IRZ.Models;
-using System;
 using System.Collections.Generic;
 
 namespace IRZ.Repositories
