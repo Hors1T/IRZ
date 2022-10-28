@@ -1,5 +1,8 @@
 # IRZ
 Rest Api using open api stackexchange
+Use a postgresql database
+Connection string in the appsettings file.json
+in the "DefaultConnection" field
 
 Home page
 ![2022-10-28_13-26-41](https://user-images.githubusercontent.com/59093424/198555714-61f5c524-06b4-4968-9fc1-cf2fae260ab7.png)
