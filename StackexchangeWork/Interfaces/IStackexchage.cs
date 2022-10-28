@@ -1,10 +1,12 @@
-﻿using System;
+﻿using IRZ.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace IRZ.StackexchangeWork
 {
     public interface IStackexchage
     {
-        public Task Work(DateTime fromdate, DateTime todate, string tagged);
+        public void Work(Post post);
+        public DateTime ConvertData(long unixTime);
     }
 }

@@ -5,27 +5,27 @@ namespace IRZ.Models
     public class Owner
     {
         [JsonPropertyName("account_id")]
-        public int AccountId { get; set; }
+        public int account_id { get; set; }
 
         [JsonPropertyName("reputation")]
-        public int Reputation { get; set; }
+        public int reputation { get; set; }
 
         [JsonPropertyName("user_id")]
-        public int UserId { get; set; }
+        public int user_id { get; set; }
 
         [JsonPropertyName("user_type")]
-        public string UserType { get; set; }
+        public string user_type { get; set; }
 
         [JsonPropertyName("accept_rate")]
-        public int AcceptRate { get; set; }
+        public int accept_rate { get; set; }
 
         [JsonPropertyName("profile_image")]
-        public string ProfileImage { get; set; }
+        public string profile_image { get; set; }
 
         [JsonPropertyName("display_name")]
-        public string DisplayName { get; set; }
+        public string display_name { get; set; }
 
         [JsonPropertyName("link")]
-        public string Link { get; set; }
+        public string link { get; set; }
     }
 }

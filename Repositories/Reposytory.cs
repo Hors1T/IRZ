@@ -21,31 +21,21 @@ namespace IRZ.Repositories
             return model;
         }
 
-        public void Delete(Guid id)
+        public void Delete()
         {
-            var toDelete = Context.Set<TDbModel>().FirstOrDefault(x => x.Id == id);
-            Context.Set<TDbModel>().Remove(toDelete);
+            var rows = from o in Context.Set<TDbModel>()
+                       select o;
+            foreach (var row in rows)
+            {
+                Context.Set<TDbModel>().Remove(row);
+            }
             Context.SaveChanges();
         }
 
-        public TDbModel Get(Guid id)
+        public List<TDbModel> Get()
         {
-            return Context.Set<TDbModel>().FirstOrDefault(x => x.Id == id);
+            return Context.Set<TDbModel>().ToList();
         }
 
-        TDbModel IRepository<TDbModel>.Get(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        TDbModel IRepository<TDbModel>.Create(TDbModel model)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IRepository<TDbModel>.Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

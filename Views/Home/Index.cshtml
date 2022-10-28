@@ -1,15 +1,97 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<script src="~/js/site.js" asp-append-version="true"></script>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<form action="http://localhost:53706/api/values/get" >
-   <button>Get</button>
-  </form>
-  <input  type="date" id="fromdate" name="fromdate">
-  <input  type="date" id="todate" name="todate">
-  <input  type="text" id="tagged" name="tagged">
-  <button onclick="Request()">Get</button>
+
+ <button onclick="Get()">Get</button> 
+ <button onclick="Delete()">Delete</button>
+<table class="table">
+      <thead>
+        <tr>
+          <td>
+            Creation date
+          </td>
+           <td>
+            Title
+          </td>
+           <td>
+            Author
+          </td>
+           <td>
+             Answered?
+          </td>
+          <td>
+             Link
+          </td>
+        </tr>
+        <tbody class="tbody">
+
+        </tbody>
+      </thead>
+   
+  </table>
+  <table>
+      <tr>
+          <td>
+          <label>order</label>
+          <select name="order" id="order">
+              <option>desc</option>
+              <option>asc</option>
+              </select>
+              </td>
+      </tr>
+      <tr>
+            <td>
+                <label>page</label>
+                <input type="text" id="page" name = "page">
+            </td>
+            <td>
+                <label>pagesize</label>
+                <input type="text" id="pagesize" name = "pagesize">
+            </td>             
+      </tr>
+      <tr>
+          <td>
+            <label>fromdate</label>
+            <input  type="date" id="fromdate" name="fromdate">
+          </td>
+          <td>
+            <label>todate</label>
+            <input  type="date" id="todate" name="todate">
+           </td>           
+      </tr>
+    <tr>
+        <td>
+            <label>tagged</label>
+            <input  type="text" id="tagged" name="tagged">
+        </td>
+        <td>
+            <label>nottagged</label>
+            <input  type="text" id="nottagged" name="nottagged">
+        </td>
+        <td>
+            <label>intitle</label>
+            <input  type="text" id="intitle" name="intitle">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>sort</label>
+             <select name="sort" id="sort" class="sort" onchange = "Onchange(this)">
+                <option value="1">activity</option>
+                <option value="2">votes</option>
+                <option value="1">creation</option>
+                <option value="0">relevance</option>
+            </select>
+        </td>
+        <td>
+            <label>min</label>
+            <input  id="min" type="date" name="min" >
+        </td>
+        <td>
+            <label>max</label>
+            <input  id="max" type="date" name="max">
+        </td>    
+    </tr>
+</table>
+  <button onclick="Request()">Post</button>
+ <script src="~/js/site.js" asp-append-version="true"></script>

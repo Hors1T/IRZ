@@ -30,39 +30,28 @@ namespace IRZ.Controllers
         [HttpGet, Route("get")]
         public string Get()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.stackexchange.com/2.3/search?fromdate=1666224000&todate=1664928000&order=desc&sort=activity&tagged=python&site=stackoverflow");
-            request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
-            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-
-            var response = "";
-
-            using (var webResponse = request.GetResponse())
-            using (var sr = new StreamReader(webResponse.GetResponseStream()))
+            string information = "";
+            var items = Infos.Get();
+            foreach (var item in items)
             {
-                response = sr.ReadToEnd();
+                information += $"<tr><td>{Stackexchage.ConvertData(item.creation_date)}</td><td>{item.title}</td><td>{item.display_name}</td><td>{item.is_answered}</td><td>{item.link}</td></tr>";
             }
-
-            return response;
+            return information;
         }
 
         // POST api/<ValuesController>
         [HttpPost, Route("post")]
-        public string Post( [FromForm]Post post)
+        public string Post([FromForm]Post post)
         {
-            Stackexchage.Work(post.fromdate,post.todate,post.tagged);
-            return post.tagged.ToString();
+            Stackexchage.Work(post);
+            return post.page.ToString();
             
         }
-        [HttpPost, Route("post1")]
-        public string post1(/*DateTime fromdate, DateTime todate, string tagged*/ )
-        {
-           return "str";
-
-        }
         // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete(), Route("Delete")]
+        public void Delete()
         {
+            Infos.Delete();
         }
     }
 }

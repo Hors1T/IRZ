@@ -6,8 +6,8 @@ namespace IRZ.Repositories
 {
     public interface IRepository<TDbModel> where TDbModel : BaseModel
     {
-        public TDbModel Get(Guid id);
+        public List<TDbModel> Get();
         public TDbModel Create(TDbModel model);
-        public void Delete(Guid id);
+        public void Delete();
     }
 }
